@@ -1,7 +1,7 @@
 /**
  * BasicHTTPClient.ino
  *
- *  Created on: 24.05.2015
+ *  By: Leonardo Gonçalves - Inatel - Brazil
  *
  */
 
