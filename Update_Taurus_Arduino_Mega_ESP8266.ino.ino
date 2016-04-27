@@ -1,3 +1,6 @@
+/*Connect to TAURUS IOT PLATFORM using Arduino Mega + ESP8266
+Code by : Leonardo Gonçalves - Inatel - Brazil
+*/
 #define SSID "SSID" //Insert your Wireless SSID Here
 #define PASS "PASSWWORD" //Insert your Wireless Password Here
 #define IP "177.153.20.101" // taurussystem.com
