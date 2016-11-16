@@ -15,8 +15,8 @@
 #define USE_SERIAL Serial
 
 ESP8266WiFiMulti WiFiMulti;
-String KEY = "Teste1";
-String ID = "1001";
+String KEY = "SERIAL";
+String ID = "ACTUATOR_ID";
 int VAR = 0;
 String GET, GETCREATE;
 String V;
@@ -35,7 +35,7 @@ void setup() {
     delay(1000);
   }
 
-  WiFiMulti.addAP("Das Coisas", "secretamente secreto");
+  WiFiMulti.addAP("SSID", "PASSWORD");
 
 }
 
