@@ -1,7 +1,7 @@
 /**
- * BasicHTTPClient.ino
+ * By: Leonardo Gonçalves - Das Coisas - Minas Gerais - Brazil
  *
- *  By: Leonardo Gonçalves - Inatel - Brazil
+ *  Created on: 24.05.2015
  *
  */
 
@@ -15,7 +15,8 @@
 #define USE_SERIAL Serial
 
 ESP8266WiFiMulti WiFiMulti;
-String ID = "IDDOSEUSENSOR";
+String KEY = "Teste1";
+String ID = "1001";
 int VAR = 0;
 String GET, GETCREATE;
 String V;
@@ -34,7 +35,7 @@ void setup() {
     delay(1000);
   }
 
-  WiFiMulti.addAP("SSID", "PASSWORD");
+  WiFiMulti.addAP("Das Coisas", "secretamente secreto");
 
 }
 
@@ -46,7 +47,7 @@ void loop() {
     USE_SERIAL.print("[HTTP] begin...\n");
     // configure traged server and url
     //http.begin("192.168.1.12", 443, "/test.html", true, "7a 9c f4 db 40 d3 62 5a 6e 21 bc 5c cc 66 c8 3e a1 45 59 38"); //HTTPS
-    http.begin("177.153.20.101", 80, GET); //IP de http://taurus.jelasticlw.com.br
+    http.begin("104.131.189.228", 80, GET); //HTTP
     USE_SERIAL.print("[HTTP] GET...\n");
     // start connection and send HTTP header
     int httpCode = http.GET();
@@ -60,18 +61,18 @@ void loop() {
       int posicao = payload.indexOf(ID);
       if (posicao == -1 && httpCode == 200)
       {
-        CREATE();
+        //CREATE();
       }
       String dado = payload.substring(posicao + 5, posicao + 6);
       USE_SERIAL.print("Dado: ");
       USE_SERIAL.println(dado);
-      if (dado == "0")
-      {
-        digitalWrite(BUILTIN_LED, HIGH);//ANODO COMUM, ACENDE COM LOW
-      }
       if (dado == "1")
       {
-        digitalWrite(BUILTIN_LED, LOW);
+        digitalWrite(BUILTIN_LED, LOW);//ANODO COMUM, ACENDE COM LOW
+      }
+      if (dado == "0")
+      {
+        digitalWrite(BUILTIN_LED, HIGH);
       }
       USE_SERIAL.println(payload);
       //}
@@ -84,9 +85,9 @@ void loop() {
 
 void URL(void)
 {
-  GET = "http://taurus.jelasticlw.com.br/ws/webresources/GetDigitais?key=SERIAL";
+  GET = "http://104.131.189.228/ws/webresources/GetDigitais?key=Teste1";
   String estado = ",0)";
-  GETCREATE = "http://taurus.jelasticlw.com.br/ws/webresources/Create?key=SERIAL&&load=(";
+  GETCREATE = "http://104.131.189.228/ws/webresources/Create?key=Teste1&&load=(";
   GETCREATE = GETCREATE + ID + estado;
   /*
   VAR++;
@@ -99,7 +100,7 @@ void CREATE(void)
   URL();
   HTTPClient http;
   USE_SERIAL.println("Componente não existente, criando ...");
-  http.begin("177.153.20.101", 80, GETCREATE); //HTTP
+  http.begin("104.131.189.228", 80, GETCREATE); //HTTP
   USE_SERIAL.print("[HTTP] GET...\n");
   // start connection and send HTTP header
   int httpCode = http.GET();
@@ -113,4 +114,3 @@ void CREATE(void)
     int posicao = payload.indexOf(ID);
   }
 }
-
