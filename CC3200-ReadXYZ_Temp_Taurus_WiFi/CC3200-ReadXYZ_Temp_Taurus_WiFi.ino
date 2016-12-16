@@ -122,12 +122,12 @@ void TaurusUpdate()
 }
 void GET()
 {
-  String IDX = "2001";
-  String IDY = "2002";
-  String IDZ = "2003";
-  String TempObj = "2004";
-  String TempReal = "2005";
-  GETtoTaurus = "GET /ws/webresources/SetSensor?key=Teste1&&load=("+IDX+","+x+"*"+IDY+","+y+"*"+IDZ+","+z+"*"+TempObj+","+objt+"*"+TempReal+","+diet+") HTTP/1.1"; 
+  String IDX = "2001"; //2001 em meu exemplo
+  String IDY = "2002"; //2002 em meu exemplo
+  String IDZ = "2003"; //2003 em meu exemplo
+  String TempObj = "2004"; //2004 em meu exemplo  
+  String TempReal = "2005"; //2005 em meu exemplo
+  GETtoTaurus = "GET /ws/webresources/SetSensor?key=SERIAL&&load=("+IDX+","+x+"*"+IDY+","+y+"*"+IDZ+","+z+"*"+TempObj+","+objt+"*"+TempReal+","+diet+") HTTP/1.1"; 
   Serial.println(GETtoTaurus);
 }
 
