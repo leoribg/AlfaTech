@@ -21,15 +21,15 @@ BMA222 mySensor;
 Adafruit_TMP006 tmp006(0x41);
 
 // SSID da sua rede
-char ssid[] = "Goncalves";
+char ssid[] = "SSID";
 // Senha
-char password[] = "34710775";
+char password[] = "PASSWORD";
 int objt;
 int diet;
 int8_t x;
 int8_t y;
 int8_t z;
-char server[] = "taurus.jelasticlw.com.br";    // name address for Google (using DNS)
+char server[] = "104.131.189.228";    // name address for Google (using DNS)
 String GETtoTaurus;
 
 WiFiClient client;
@@ -103,7 +103,7 @@ void TaurusUpdate()
     Serial.println("Conectado");
     // Make a HTTP request:
     client.println(GETtoTaurus);
-    client.println("Host: taurus.jelasticlw.com.br");
+    client.println("Host: taurussystem.com");
     client.println("Connection: close");
     client.println();
     client.println();
